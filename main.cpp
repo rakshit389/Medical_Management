@@ -1,6 +1,7 @@
-											                              //////////////////////////////////
+  
+						    //////////////////////////////////
 ///////////////////////////////////////////////////  Medical Shop Management System  ////////////////////////////////////////////////////////////////
-											                             //////////////////////////////////
+						   //////////////////////////////////
 #include <iostream>
 #include <stdlib.h>
 #include <string>
@@ -11,18 +12,18 @@
 
 using namespace std;
 
-class medicineType	//base class
+class Order	//base class
 {
 public:
 
     void take_order();
     void delete_order();  
     void modify(); 
-	void  order_list();
-	void daily_summary();  
+    void receipt(); 
+    void daily_summary();  
     void modify_order_list();
-	void exit();   
-	medicineType(); 
+    void exit();   
+    Order(); 
 
 }; 
 struct node //constract node
@@ -43,11 +44,11 @@ struct node //constract node
 
 node *start_ptr = NULL;
 
- medicineType::medicineType ( )   //constructor for class CarType
+ Order::Order ( )   //constructor for class CarType
 {
 
 }
-void medicineType::modify_order_list( )		 
+void Order::modify_order_list( )		 
 {
     int c ;
     do
@@ -101,7 +102,7 @@ int main()
 {
 
 	system("COLOR 70");
-	medicineType medicine;
+	Order medicine;
 	int menu;
 	do
 	{
@@ -178,7 +179,7 @@ int main()
 }//end  main function
 
 
-void medicineType:: take_order()	//function to take_order
+void Order:: take_order()	//function to take_order
 {
 	 
 	int i;
@@ -189,17 +190,17 @@ void medicineType:: take_order()	//function to take_order
 	node *temp;
 	temp=new node;
 
-				cout <<"**************************************************************************\n";
-				cout<<left<<setw(20)<<"Medicine ID"<<left<<setw(20)<<"Medicine TYPE"<<left<<setw(20)<<"Medicine NAME"<<left<<setw(20)<<"Medicine PRICE(Rs)"<<endl;
-				cout <<"**************************************************************************\n";
+		cout <<"**************************************************************************\n";
+		cout<<left<<setw(20)<<"Medicine ID"<<left<<setw(20)<<"Medicine TYPE"<<left<<setw(20)<<"Medicine NAME"<<left<<setw(20)<<"Medicine PRICE(Rs)"<<endl;
+		cout <<"**************************************************************************\n";
                 cout<< left<< setw(20)<< "0001"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< " Vitamin C "<< left<< setw(20)<< "Rs 50"<< endl;
-				cout<< left<< setw(20)<< "0002"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Paracetamol"<< left<< setw(20)<< "Rs 30"<< endl;
-				cout<< left<< setw(20)<< "0003"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Acid Free C"<< left<< setw(20)<< "Rs 20"<< endl;
-			    cout<< left<< setw(20)<< "0004"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Marino "<< left<< setw(20)<< "Rs 10"<< endl;
-				cout<< left<< setw(20)<< "0005"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Amino Zinc"<< left<< setw(20)<< "Rs 20"<< endl;
-				cout<< left<< setw(20)<< "0006"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Biotin"<< left<< setw(20)<< "Rs 70"<< endl;
-				cout<< left<< setw(20)<< "0007"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Fabuloss 5"<< left<< setw(20)<< "Rs 80"<< endl;
-				cout<< left<< setw(20)<< "0008"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Aspirin"<< left<< setw(20)<< "Rs 90"<< endl;
+		cout<< left<< setw(20)<< "0002"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Paracetamol"<< left<< setw(20)<< "Rs 30"<< endl;
+		cout<< left<< setw(20)<< "0003"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Acid Free C"<< left<< setw(20)<< "Rs 20"<< endl;
+		cout<< left<< setw(20)<< "0004"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Marino "<< left<< setw(20)<< "Rs 10"<< endl;
+		cout<< left<< setw(20)<< "0005"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Amino Zinc"<< left<< setw(20)<< "Rs 20"<< endl;
+		cout<< left<< setw(20)<< "0006"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Biotin"<< left<< setw(20)<< "Rs 70"<< endl;
+		cout<< left<< setw(20)<< "0007"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Fabuloss 5"<< left<< setw(20)<< "Rs 80"<< endl;
+		cout<< left<< setw(20)<< "0008"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Aspirin"<< left<< setw(20)<< "Rs 90"<< endl;
                 cout<< left<< setw(20)<< "0009"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Aciloc"<< left<< setw(20)<< "Rs 40"<< endl;
                 cout<< left<< setw(20)<< "0010"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Asthalin"<< left<< setw(20)<< "Rs 100"<< endl;
                 cout<< left<< setw(20)<< "0011"<< left<< setw(20)<<  "OTC"<< left<< setw(20)<< "Foracort"<< left<< setw(20)<< "Rs 70"<< endl;
@@ -261,7 +262,7 @@ void medicineType:: take_order()	//function to take_order
 }//End function take_order
 
 
-void medicineType::order_list()		//Function to display receipt
+void Order::order_list()		//Function to display receipt
 {
 	int i, num, num2;	
 	bool found;			//variable to search 
@@ -340,10 +341,10 @@ void medicineType::order_list()		//Function to display receipt
 
 
 }
-}	//End function order_list
+}	//End functionreceipt
 
 
-void medicineType::delete_order()	//function to delete_order
+void Order::delete_order()	//function to delete_order
 {
 	system("cls");
 	int i, num ;
@@ -395,7 +396,7 @@ void medicineType::delete_order()	//function to delete_order
 
 
 
-void medicineType::modify()		//function to modify order
+void Order::modify()		//function to modify order
 {
  system("cls");
  int i, ch, sid;
@@ -485,7 +486,7 @@ void medicineType::modify()		//function to modify order
 
 
 
-void medicineType::daily_summary()		//Function to display Daily Summary
+void Order::daily_summary()		//Function to display Daily Summary
 {
 	int i,num;
 	system("cls");
@@ -543,13 +544,13 @@ void medicineType::daily_summary()		//Function to display Daily Summary
         cout<<"Total Sale : "<<total<<endl;
 	}
 }		//End daily summary
-void medicineType::exit() //Function to exit
+void Order::exit() //Function to exit
 {
 	cout<<"\nYou choose to exit.\n"<<endl;
 }	 
 
-															                                ///////////////////////
-/////////////////////////////////////////////////////////////  THE END OF PROGRAM  ////////////////////////////////////////////////////////////////////
-														                                 ///////////////////////
-                                                             
+						      	    ///////////////////////
+///////////////////////////////////////////////////////////  THE END OF PROGRAM  ////////////////////////////////////////////////////////////////////
+						          ///////////////////////	 
  /* Created by Rakshit Upadhyay*/
+ 
